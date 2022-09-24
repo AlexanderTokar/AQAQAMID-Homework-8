@@ -31,6 +31,7 @@ public class LoginPage {
         error.shouldBe(Condition.visible, Duration.ofSeconds(5));
     }
 
+    //здесь должно появляться сообщение о том, что 3 раза введен неверный пароль
     public void getBlockError() {
         error.shouldHave(Condition.text("Вы ввели неверный пароль 3 раза. Возможность входа в личный кабинет заблокирована. Обратитесь в службу поддержки банка.")).shouldBe(Condition.visible, Duration.ofSeconds(5));
     }
