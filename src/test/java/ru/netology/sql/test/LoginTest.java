@@ -11,10 +11,6 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class LoginTest {
 
-    @BeforeAll
-    static void firstTearDown() {
-        cleanDatabase();
-    }
 
     @AfterAll
     static void tearDown () {
@@ -27,7 +23,7 @@ public class LoginTest {
         var loginPage = open("http://localhost:9999", LoginPage.class);
         var authInfo = DataHelper.getAuthInfoWithTestData();
         var verificationPage = loginPage.validLogin(authInfo);
-        verificationPage.VerificationPage();
+        //verificationPage.VerificationPage();
         var verificationCode = SQLHelper.getVerificationCode();
         verificationPage.validVerify(verificationCode.getCode());
     }
@@ -63,7 +59,8 @@ public class LoginTest {
         var verificationPage = loginPage.validLogin(authInfo);
         verificationPage.VerificationPage();
         var verificationCode = DataHelper.getVerificationCode().getCode();
-        verificationPage.validVerify(verificationCode);
+        //verificationPage.validVerify(verificationCode);
+        verificationPage.verify(verificationCode);
         verificationPage.getError();
     }
 
